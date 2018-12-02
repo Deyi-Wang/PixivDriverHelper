@@ -1,0 +1,5 @@
+2018/12/01 01:17:29 [alert] 6000#1532: OpenEvent("ngx_master_4972") failed (2: The system cannot find the file specified)
+2018/12/01 01:28:16 [alert] 6100#4352: OpenEvent("ngx_master_1152") failed (2: The system cannot find the file specified)
+2018/12/01 03:08:02 [alert] 4792#1516: OpenEvent("ngx_master_2572") failed (2: The system cannot find the file specified)
+2018/12/01 03:17:40 [notice] 7032#6252: signal process started
+2018/12/03 00:54:05 [alert] 5076#1632: OpenEvent("ngx_master_5928") failed (2: The system cannot find the file specified)
