@@ -1,0 +1,11 @@
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/cert.pem
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/fastcgi.conf
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/fastcgi_params
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/key.pem
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/koi-utf
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/koi-win
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/mime.types
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/nginx.conf
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/scgi_params
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/uwsgi_params
+https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/win-utf
