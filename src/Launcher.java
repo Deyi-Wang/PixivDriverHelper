@@ -1,10 +1,12 @@
 import java.awt.*;
+import java.io.IOException;
+
 import javax.swing.*;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 public class Launcher {
-	public static void main(String[] args) {
+	public static void main(String[] args){
 		JFrame jf=new JFrame();
 		jf.setSize(385,264);
 		Toolkit kit=Toolkit.getDefaultToolkit();
@@ -21,8 +23,12 @@ public class Launcher {
         timer.schedule(new TimerTask() {
 			public void run() {	
             jf.dispose();
-            new MainGUI().GUI();
-        } },new Random().nextInt(3800)+200);
+            try {
+				new MainGUI().GUI();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        } },new Random().nextInt(4)*1000+200);
 	}
 
 }
