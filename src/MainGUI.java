@@ -10,18 +10,23 @@ public class MainGUI extends NginxIsRunning{
 	static int mouseAtX;
 	static int mouseAtY;
 	static JLabel run=new JLabel("");
+	static JButton start=new JButton("启动服务");
+	static JButton stop=new JButton("终止服务");
 	/**
 	 * @throws Exception 
 	 * @wbp.parser.entryPoint
 	 */
 	void Update() throws Exception {
 		Process p=Runtime.getRuntime().exec("cmd /c Auto-Updater\\aria2c.exe -d \"Auto-Updater\\tmp\" https://raw.githubusercontent.com/mashirozx/Pixiv-Nginx/master/conf/nginx.conf && Auto-Updater\\aria2c.exe -d \"Auto-Updater\\tmp\" https://raw.githubusercontent.com/swsk33/PixivDriverHelper/master/Nginx/Set-up/hosts");
-		if(new File("Auto-Updater\\tmp\\nginx.conf").exists() && new File("Auto-Updater\\tmp\\hosts").exists()) {
-		new AutoUpdating().updateexa();
+		while(!new File("Auto-Updater\\tmp\\nginx.conf").exists() || !new File("Auto-Updater\\tmp\\hosts").exists()) {
+		run.setText("检查更新中。。。");
+		run.setForeground(Color.ORANGE);
+		start.setEnabled(false);
+		stop.setEnabled(false);
 		}
+		new AutoUpdating().updateexa();
 	}
 	public void GUI() throws Exception {
-		new MainGUI().Update();
 		JFrame jf=new JFrame();
 		jf.setBackground(Color.GRAY);
 		jf.setSize(450,337);
@@ -86,7 +91,6 @@ public class MainGUI extends NginxIsRunning{
           close.setBounds(412, 5, 28, 28);
           close.setContentAreaFilled(false);
   		  close.setBorderPainted(false);
-  		  JButton start=new JButton("启动服务");
   		  start.addActionListener(new ActionListener() {
   		  	public void actionPerformed(ActionEvent arg0) {
   		  		try {
@@ -100,7 +104,6 @@ public class MainGUI extends NginxIsRunning{
   		  start.setFont(new Font("幼圆", Font.BOLD, 24));
   		  start.setBounds(25, 96, 154, 68);
   		  start.setContentAreaFilled(false);
-  		  JButton stop=new JButton("终止服务");
   		  stop.addActionListener(new ActionListener() {
   		  	public void actionPerformed(ActionEvent e) {
   		  	try {
@@ -145,7 +148,12 @@ public class MainGUI extends NginxIsRunning{
   		  JButton update=new JButton("更新配置文件");
   		  update.addActionListener(new ActionListener() {
   		  	public void actionPerformed(ActionEvent e) {
-  		  		
+  		  		try {
+  		  			new AutoUpdating().upngi();
+					new AutoUpdating().uphos();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
   		  	}
   		  });
   		  update.setForeground(Color.ORANGE);
@@ -183,6 +191,7 @@ public class MainGUI extends NginxIsRunning{
   		  jp.add(about);
   		  jf.getContentPane().add(jp);
           jf.show();
+          new MainGUI().Update();
           int ii=0;
           while(ii<1) {
         	  NginxIsRunning nir=new NginxIsRunning();
@@ -194,7 +203,7 @@ public class MainGUI extends NginxIsRunning{
         		  stop.setEnabled(true);
         	  }else if(i==0) {
         		  run.setText("服务已停止！");
-        		  run.setForeground(Color.ORANGE);
+        		  run.setForeground(Color.red);
         		  start.setEnabled(true);
         		  stop.setEnabled(false);
         	  }

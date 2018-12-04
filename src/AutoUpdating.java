@@ -12,21 +12,22 @@ public class AutoUpdating extends MainGUI {
 		oldmd5hosts=new getFileMD5().getMD5("Nginx\\Set-up\\hosts");
 		newmd5nginx=new getFileMD5().getMD5("Auto-Updater\\tmp\\nginx.conf");
 		newmd5hosts=new getFileMD5().getMD5("Auto-Updater\\tmp\\hosts");
-		System.out.println(newmd5hosts);
-		System.out.println(oldmd5hosts);
-		System.out.println(newmd5nginx);
-		System.out.println(oldmd5nginx);
+		Process p=Runtime.getRuntime().exec("cmd /c del Auto-Updater\\tmp\\nginx.conf && del Auto-Updater\\tmp\\hosts");
 		if(!oldmd5nginx.equals(newmd5nginx)) {
+			if(new ConfReader().readConf("autoupdate.txt",1).equals("true")) {
+			new UpdateTip().Tip();	
+			}else if(new ConfReader().readConf("autoupdate.txt",1).equals("false")) {
 			new AutoUpdating().upngi();
+			}
 		}
 		if(!oldmd5hosts.equals(newmd5hosts)) {
-			new AutoUpdating().uphos();;
+			new AutoUpdating().uphos();
 		}
 	}
-	public void upngi() {
-		
+	public void upngi() throws Exception {
+		Process p=Runtime.getRuntime().exec("cmd /c start update-ngconf.bat");
 	}
-	public void uphos() {
-		
+	public void uphos() throws Exception {
+		Process p=Runtime.getRuntime().exec("cmd /c Auto-Updater\\aria2c -d \"Auto-Updater\\hos\" https://raw.githubusercontent.com/swsk33/PixivDriverHelper/master/Nginx/Set-up/hosts && move /y \"Auto-Updater\\hos\\hosts\" \"Nginx\\Set-up\\\" && copy /y \"Nginx\\Set-up\\hosts\" \"C:\\Windows\\System32\\drivers\\etc\\hosts\"");
 	}
 }

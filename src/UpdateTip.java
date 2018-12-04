@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Random;
 import javax.swing.*;
-public class CloseTip{
+public class UpdateTip{
 	static int mouseAtX;
 	static int mouseAtY;
-	static JCheckBox jcb=new JCheckBox("不再提示");
+	static JCheckBox jcb=new JCheckBox("下次自动更新");
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -42,15 +42,15 @@ public class CloseTip{
                   jf.setLocation((e.getXOnScreen()-mouseAtX),(e.getYOnScreen()-mouseAtY));
               }
           });
-          JLabel tip1=new JLabel("您关闭控制台窗口后，服务仍然会在后台运行!不影响正常使用！");
+          JLabel tip1=new JLabel("发现配置文件需要更新，是否立即更新？");
           tip1.setForeground(Color.MAGENTA);
-          tip1.setFont(new Font("微软雅黑", Font.BOLD, 13));
-          tip1.setBounds(12, 36, 379, 36);
-          JLabel tip2=new JLabel("可以稍后再重新打开该软件停止服务！");
+          tip1.setFont(new Font("微软雅黑", Font.BOLD, 17));
+          tip1.setBounds(46, 32, 325, 36);
+          JLabel tip2=new JLabel("不更新软件可能无法正常使用！");
           tip2.setForeground(Color.BLUE);
-          tip2.setFont(new Font("微软雅黑", Font.BOLD, 13));
-          tip2.setBounds(80, 70, 241, 23);
-          jcb.setBounds(6, 151, 100, 23);
+          tip2.setFont(new Font("微软雅黑", Font.BOLD, 15));
+          tip2.setBounds(97, 71, 230, 23);
+          jcb.setBounds(6, 151, 110, 23);
           jcb.setOpaque(false);
           JPanel jp=new JPanel();
           jp.setOpaque(false);
@@ -58,13 +58,23 @@ public class CloseTip{
           jp.add(tip1);
           jp.add(tip2);
           jp.add(jcb);
-          JButton jb=new JButton("知道了");
-          jb.setForeground(Color.blue);
+          JButton jb0=new JButton("取消");
+          jb0.addActionListener(new ActionListener() {
+          	public void actionPerformed(ActionEvent arg0) {
+          		jf.dispose();
+          	}
+          });
+          jb0.setForeground(Color.RED);
+          jb0.setFont(new Font("幼圆", Font.BOLD, 18));
+          jb0.setBounds(206, 104, 93, 41);
+          jb0.setContentAreaFilled(false);
+          JButton jb=new JButton("确定");
+          jb.setForeground(Color.BLUE);
           jb.setFont(new Font("幼圆", Font.BOLD, 18));
           jb.addActionListener(new ActionListener() {
           	public void actionPerformed(ActionEvent arg0) {
           		if(jcb.isSelected()) {
-          			File f=new File("frame.txt");
+          			File f=new File("autoupdate.txt");
           			try {
 						FileOutputStream fos=new FileOutputStream(f);
 						OutputStreamWriter osw=new OutputStreamWriter(fos);
@@ -77,11 +87,17 @@ public class CloseTip{
 						e.printStackTrace();
 					}
           		}
-          		System.exit(0);
+          		try {
+					new AutoUpdating().upngi();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+          		jf.dispose();
           	}
           });
           jb.setContentAreaFilled(false);
-          jb.setBounds(137, 108, 110, 51);
+          jb.setBounds(77, 104, 93, 41);
+          jp.add(jb0);
           jp.add(jb);
           jf.getContentPane().add(jp);
           jf.show();

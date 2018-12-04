@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.*;
@@ -6,7 +7,14 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 public class Launcher {
-	public static void main(String[] args){
+	public static void main(String[] args) throws Exception{
+		if(!new File("frame.txt").exists()) {
+			Process p=Runtime.getRuntime().exec("cmd /c echo true>frame.txt");
+		}
+		if(!new File("autoupdate.txt").exists()) {
+			Process p=Runtime.getRuntime().exec("cmd /c echo true>autoupdate.txt");
+		}
+		Process p=Runtime.getRuntime().exec("cmd /c del /f \"Auto-Updater\\tmp\\*.conf\" && del /f \"Auto-Updater\\tmp\\hosts\" && del /f \"Auto-Updater\\tmp\\hosts.*\"");
 		JFrame jf=new JFrame();
 		jf.setSize(385,264);
 		Toolkit kit=Toolkit.getDefaultToolkit();
