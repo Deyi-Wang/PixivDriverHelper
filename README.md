@@ -9,7 +9,7 @@
 #### 请对应系统位数安装！
 ### 软件下载地址：
 [github](https://github.com/swsk33/PixivDriverHelper/releases)<br>
-[lanzou-密码：2333](https://www.lanzous.com/b511496/)<br>
+[lanzou网盘-密码：2333](https://www.lanzous.com/b511496/)<br>
 ### 第一次安装本软件需要进行初次安装配置，[点击查看教程](https://github.com/swsk33/PixivDriverHelper/blob/master/FirstHelp.md)。
 
 # 关于
