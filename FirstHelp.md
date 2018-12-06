@@ -17,6 +17,7 @@
 ![](https://i.imgur.com/nyFZpE1.png)<br>
 复制hosts文件到目录C:\Windows\System32\drivers\etc下并覆盖原文件。<br>
 ![](https://i.imgur.com/xryizCv.png)
+也可以右键-以管理员身份运行“一键修改.bat”一键修改！
 提示没有权限无法覆盖？请看管理员权限获取教程:[点击查看](https://blog.csdn.net/yanhanhui1/article/details/82746357)<br>
 #### 这样，第一次配置就完成了！
 #### 以后只需打开软件，点击“启动服务”按钮即可。再打开浏览器即可访问pixiv站了！
