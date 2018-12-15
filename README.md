@@ -11,7 +11,7 @@
 ### 软件下载：
 [github下载](https://github.com/swsk33/PixivDriverHelper/releases)<br>
 [网盘下载-lanzou](https://www.lanzous.com/b511496/)<br>
-
+## 软件必须安装在纯英文目录下，否则会导致核心服务无法运行！
 ## 第一次安装需进行配置才能使用！点击查看：[第一次配置，日常使用教程及常见问题解决](https://github.com/swsk33/PixivDriverHelper/blob/master/FirstHelp.md)
 
 ## 关于：
