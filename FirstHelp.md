@@ -8,16 +8,19 @@
 ![](https://i.imgur.com/soK42Pz.png)<br>
 然后按照如下图步骤操作即可成功导入证书！<br>
 ![](https://i.imgur.com/8vI6MLH.png)
-![](https://i.imgur.com/J7UkAGd.png)
-![](https://i.imgur.com/Kdywo0n.png)
+![](https://i.imgur.com/7NXtgyR.png)
+![](https://i.imgur.com/rFjB9QY.png)
+![](https://i.imgur.com/h1L43hi.png)
 ![](https://i.imgur.com/u0z8Cgq.png)<br>
 ### (2)修改hosts文件
 打开软件，点击“修改hosts文件”按钮，打开一个文件夹：<br>
-![](https://i.imgur.com/ptBuB9H.png)
-![](https://i.imgur.com/nyFZpE1.png)<br>
-复制hosts文件到目录C:\Windows\System32\drivers\etc下并覆盖原文件。<br>
-![](https://i.imgur.com/xryizCv.png)
-也可以右键-以管理员身份运行“一键修改.bat”一键修改！
+右键-以管理员身份运行“一键修改.bat”一键修改hosts！<br>
+![](https://i.imgur.com/XEfzM5j.png)<br>
+按照批处理里面的指示操作即可！<br>
+![](https://i.imgur.com/DmATfZC.png)
+![](https://i.imgur.com/tFRV610.png)<br>
+也可以手动修改，复制hosts文件到目录C:\Windows\System32\drivers\etc下并覆盖原文件。<br>
+
 提示没有权限无法覆盖？请看管理员权限获取教程:[点击查看](https://blog.csdn.net/yanhanhui1/article/details/82746357)<br>
 #### 这样，第一次配置就完成了！
 
